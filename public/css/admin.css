@@ -10799,3 +10799,9 @@ html.light-theme .top-header .navbar .searchbar .form-control:focus {
 .input-file {
     width: 300px;
 }
+.help-block {
+    color: red;
+}
+.login-form .form-control {
+    margin-bottom: 15px;
+}
