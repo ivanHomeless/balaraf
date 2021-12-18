@@ -122,6 +122,12 @@ return [
         'img_back' => 'Картинка на оборот',
         'video' => 'Видео',
         'sound' => 'Звук',
+        'slug' => 'URL',
+        'title' => 'Заголовок',
+        'content' => 'Контент',
+        'seo_title' => 'SEO title',
+        'seo_description' => 'SEO description',
+        'seo_keywords' => 'SEO keywords',
     ],
 
 ];

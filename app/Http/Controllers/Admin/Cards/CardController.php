@@ -23,7 +23,7 @@ class CardController extends Controller
         $lang = (int)$request->input('lang');
         $lang = Language::findOrFail($lang);
 
-        return view('admin.cards.card.index', compact('lang'));
+        return view('admin.cards.index', compact('lang'));
     }
 
     /**
@@ -35,7 +35,7 @@ class CardController extends Controller
     {
         $lang = (int)$request->input('lang');
         $lang = Language::findOrFail($lang);
-        return view('admin.cards.card.create', compact('lang'));
+        return view('admin.cards.create', compact('lang'));
     }
 
     /**
@@ -64,7 +64,7 @@ class CardController extends Controller
 
         if ($item) {
             return redirect()
-                ->route('admin.cards.card.edit', $item->id)
+                ->route('admin.cards.edit', $item->id)
                 ->with(['success' => 'Успешно сохранено']);
         } else {
             return back()
@@ -84,7 +84,7 @@ class CardController extends Controller
     {
         $card = Card::findOrFail($id);
 
-        return view('admin.cards.card.edit', compact('card'));
+        return view('admin.cards.edit', compact('card'));
     }
 
     /**
@@ -127,7 +127,7 @@ class CardController extends Controller
 
         if ($item) {
             return redirect()
-                ->route('admin.cards.card.edit', $item->id)
+                ->route('admin.cards.edit', $item->id)
                 ->with(['success' => 'Успешно сохранено']);
         } else {
             return back()
@@ -150,7 +150,7 @@ class CardController extends Controller
 
         if ($result) {
             return redirect()
-                ->route('admin.cards.card.index', ['lang' => $lang])
+                ->route('admin.cards.index', ['lang' => $lang])
                 ->with(['success' => "Карточка id[$id] удалена"]);
         } else {
             return back()

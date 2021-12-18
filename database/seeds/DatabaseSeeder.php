@@ -13,6 +13,7 @@ class DatabaseSeeder extends Seeder
     {
         // $this->call(UsersTableSeeder::class);
         factory(App\Models\Card::class, 30)->create();
-        factory(App\Models\Page::class, 2)->create();
+        $this->call(PageSeeder::class);
+        $this->call(MenuItemSeeder::class);
     }
 }

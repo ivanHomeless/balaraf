@@ -29,10 +29,30 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function() {
 
     Route::group(['namespace' => 'Cards', 'prefix' => 'cards'], function() {
         Route::resource('card', 'CardController', [
-            'names' => 'admin.cards.card',
+            'names' => 'admin.cards',
+            'except' => 'show',
+        ]);
+    });
+
+    Route::group(['namespace' => 'Site', 'prefix' => 'site'], function() {
+
+        Route::resource('page', 'PageController', [
+            'names' => 'admin.site.pages',
             'except' => 'show',
         ]);
 
+        Route::resource('menuItem', 'MenuItemController', [
+            'names' => 'admin.site.menuItems',
+            'except' => 'show',
+        ]);
+    });
+
+
+    Route::group(['namespace' => 'Setting', 'prefix' => 'setting'], function () {
+        Route::resource('password', 'PasswordController', [
+            'names' => 'admin.setting.password',
+            'only' => ['edit', 'update'],
+        ]);
     });
 
 });

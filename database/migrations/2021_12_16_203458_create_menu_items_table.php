@@ -15,8 +15,8 @@ class CreateMenuItemsTable extends Migration
     {
         Schema::create('menu_items', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title');
-            $table->string('url');
+            $table->string('title')->unique();;
+            $table->string('url')->unique();;
         });
     }
 

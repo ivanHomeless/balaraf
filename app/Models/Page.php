@@ -23,5 +23,12 @@ use Illuminate\Database\Eloquent;
  */
 class Page extends Model
 {
-    //
+    protected $fillable = [
+        'slug',
+        'title',
+        'content',
+        'seo_title',
+        'seo_description',
+        'seo_keywords',
+    ];
 }

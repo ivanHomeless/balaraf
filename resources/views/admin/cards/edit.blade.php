@@ -8,7 +8,7 @@
                     <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}"><i class="bx bx-home-alt"></i></a>
                     </li>
                     <li class="breadcrumb-item" aria-current="page">
-                        <a href="{{route('admin.cards.card.index', ['lang' => $card->language->id])}}">Карточки</a>
+                        <a href="{{route('admin.cards.index', ['lang' => $card->language->id])}}">Карточки</a>
                     </li>
                     <li class="breadcrumb-item active" aria-current="page">Карточка {{mb_strtoupper($card->letter) }}</li>
                 </ol>
@@ -16,7 +16,7 @@
         </div>
     </div>
 
-    <form method="POST" action="{{ route('admin.cards.card.update', $card->id) }}" enctype="multipart/form-data">
+    <form method="POST" action="{{ route('admin.cards.update', $card->id) }}" enctype="multipart/form-data">
         {{csrf_field()}}
         {{ method_field('PATCH') }}
         <div class="card">

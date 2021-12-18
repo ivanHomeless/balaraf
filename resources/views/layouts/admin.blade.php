@@ -91,7 +91,7 @@
                                     <ul class="mm-collapse">
                                         @foreach($data['languages'] as $language)
                                             <li>
-                                                <a href="{{route('admin.cards.card.index')}}?lang={{$language->id}}"><i class="fadeIn animated bx bx-radio-circle"></i>{{$language->name}}</a>
+                                                <a href="{{route('admin.cards.index')}}?lang={{$language->id}}"><i class="fadeIn animated bx bx-radio-circle"></i>{{$language->name}}</a>
                                             </li>
                                         @endforeach
 
@@ -99,7 +99,7 @@
                                 </li>
 
                                 <li>
-                                    <a href="#">
+                                    <a href="{{route('admin.site.pages.index')}}">
                                         <div class="parent-icon">
                                             <i class="lni lni-notepad"></i>
                                         </div>
@@ -108,7 +108,7 @@
                                 </li>
 
                                 <li>
-                                    <a href="#">
+                                    <a href="{{route('admin.site.menuItems.index')}}">
                                         <div class="parent-icon">
                                             <i class="lni lni-menu"></i>
                                         </div>
@@ -123,7 +123,7 @@
                                     </a>
                                     <ul class="mm-collapse">
                                         <li>
-                                            <a href="app-emailbox.html"><i class="fadeIn animated bx bx-radio-circle"></i>Сменить пароль</a>
+                                            <a href="{{ route('admin.setting.password.edit', 1)  }}"><i class="fadeIn animated bx bx-radio-circle"></i>Сменить пароль</a>
                                         </li>
                                     </ul>
                                 </li>

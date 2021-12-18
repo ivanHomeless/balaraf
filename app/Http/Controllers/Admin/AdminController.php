@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Card;
+use App\Models\Page;
 
 class AdminController extends Controller
 {
@@ -19,6 +20,7 @@ class AdminController extends Controller
     public function dashboard()
     {
         $cards = Card::take(5)->orderBy('id', 'DESC')->get();
-        return view('admin.dashboard', compact('cards'));
+        $pages = Page::take(5)->orderBy('id', 'DESC')->get();
+        return view('admin.dashboard', compact('cards', 'pages'));
     }
 }

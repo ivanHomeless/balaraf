@@ -18,5 +18,8 @@ use Illuminate\Database\Eloquent;
 
 class MenuItem extends Model
 {
-    //
+    protected $fillable = [
+        'title',
+        'url',
+    ];
 }
