@@ -1,0 +1,134 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+}
+
+h2 {
+    font-size: 36px;
+}
+
+.wrap {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main-header {
+    padding-bottom: 10px;
+}
+
+.main-menu {
+    display: flex;
+    padding-bottom: 10px;
+}
+.main-menu__items {
+    display: flex;
+    list-style: none;
+    margin-left: auto;
+    margin-bottom: 0;
+}
+.main-menu__item {
+    margin-left: 30px;
+}
+.main-menu__link {
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #000000;
+    text-decoration: none;
+}
+
+.main-logo {
+    text-align: center;
+}
+.main-logo__image {
+    width: 400px;
+}
+
+main {
+    padding-bottom: 95px;
+    flex-grow: 1;
+    padding-top: 50px;
+    background: #FFDB70;
+}
+
+.main-cards {
+    padding-bottom: 40px;
+}
+.main-cards__title {
+    margin: 0;
+    padding-bottom: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.main-cards__content {
+    padding-top: 35px;
+    text-align: center;
+    line-height: 90%;
+}
+
+
+.features {
+    padding-bottom: 60px;
+}
+.features__item {
+    position: relative;
+    margin-bottom: 20px;
+}
+.features__content {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+.games {
+    position: relative;
+    padding-bottom: 60px;
+}
+.games__title {
+    margin: 0;
+    padding-bottom: 15px;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+}
+.games__content {
+    width: 100%;
+    position: absolute;
+    left: 50%;
+    bottom: 90px;
+    text-align: center;
+    transform: translateX(-50%);
+}
+
+.main-about {
+    width: 730px;
+    text-align: center;
+    font-size: 18px;
+}
+
+footer {
+    background: #FCFFD3;
+}
+.main-footer__content {
+    padding-top: 42px;
+    padding-bottom: 53px;
+}
+.main-footer__content p {
+    margin: 0;
+}
+
+.big-dummy {
+    height: 350px;
+    border-radius: 16px;
+    background: #FCFFD3;
+}
+.features__dummy {
+    height: 250px;
+    border-radius: 16px;
+    background: #fff;
+}
+
+
