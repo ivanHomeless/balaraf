@@ -19,4 +19,20 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-Route::get('/admin', 'Admin\AdminController@dashboard');
+
+$groupData = [
+    'namespace' => 'Admin',
+    'prefix'    => 'admin',
+];
+Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function() {
+    Route::get('/dashboard', 'AdminController@dashboard')->name('admin.dashboard');
+
+    Route::group(['namespace' => 'Cards', 'prefix' => 'cards'], function() {
+        Route::resource('card', 'CardController', [
+            'names' => 'admin.cards.card',
+            'except' => 'show',
+        ]);
+
+    });
+
+});

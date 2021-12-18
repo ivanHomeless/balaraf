@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="light-theme">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,6 +14,7 @@
     <script src="{{ asset('js/jquery.min.js') }}" defer></script>
 
     <script src="{{ asset('js/admin.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}" defer></script>
 
 
 
@@ -25,7 +26,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 
     <!-- Styles -->
-    <link href="{{ asset('css/icons.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bootstrap-extended.css') }}" rel="stylesheet">
     <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
@@ -33,6 +33,10 @@
 
 </head>
 <body class="pace-done">
+
+
+
+
 <!--start wrapper-->
 <div id="app" class="wrapper">
     <!--start top header-->
@@ -40,6 +44,23 @@
         <nav class="navbar navbar-expand gap-3">
             <div class="mobile-toggle-icon fs-3">
                 <i class="bi bi-list"></i>
+            </div>
+            <div class="top-navbar-right ms-auto">
+                <ul class="navbar-nav align-items-center">
+                    <li>
+                        <a class="dropdown-item" href="{{ url('/logout') }}"
+                           onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                            <div class="d-flex align-items-center">
+                                <div class=""><i class="bi bi-lock-fill"></i></div>
+                                <div class="ms-3"><span>Выход</span></div>
+                            </div>
+                        </a>
+                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
+                    </li>
+                </ul>
             </div>
         </nav>
     </header>
@@ -56,7 +77,8 @@
                     <div class="simplebar-content-wrapper" style="height: 100%; overflow: hidden scroll;">
                         <div class="simplebar-content mm-active" style="padding: 0px;">
                             <div class="sidebar-header">
-                                <div><h4 class="logo-text">Admin</h4></div>
+                                <div>
+                                    <a href="{{ route('admin.dashboard') }}"><h4 class="logo-text">Admin</h4></div></a>
                                 <div class="toggle-icon ms-auto"> <i class="bi bi-list"></i></div>
                             </div>
 
@@ -67,27 +89,12 @@
                                         <div class="menu-title">Языки</div>
                                     </a>
                                     <ul class="mm-collapse">
-                                        <li>
-                                            <a href="app-emailbox.html"><i class="fadeIn animated bx bx-radio-circle"></i>Русский</a>
-                                        </li>
-                                        <li>
-                                            <a href="app-file-manager.html"><i class="fadeIn animated bx bx-radio-circle"></i></i>Татарский</a>
-                                        </li>
-                                        <li>
-                                            <a href="app-to-do.html"><i class="fadeIn animated bx bx-radio-circle"></i>Мордовский(эрзя)</a>
-                                        </li>
-                                        <li>
-                                            <a href="app-invoice.html"><i class="fadeIn animated bx bx-radio-circle"></i>Мордовский(мокша)</a>
-                                        </li>
-                                        <li>
-                                            <a href="app-fullcalender.html"><i class="fadeIn animated bx bx-radio-circle"></i>Марийский</a>
-                                        </li>
-                                        <li>
-                                            <a href="app-fullcalender.html"><i class="fadeIn animated bx bx-radio-circle"></i>Удмуртский</a>
-                                        </li>
-                                        <li>
-                                            <a href="app-fullcalender.html"><i class="fadeIn animated bx bx-radio-circle"></i>Чувашский</a>
-                                        </li>
+                                        @foreach($data['languages'] as $language)
+                                            <li>
+                                                <a href="{{route('admin.cards.card.index')}}?lang={{$language->id}}"><i class="fadeIn animated bx bx-radio-circle"></i>{{$language->name}}</a>
+                                            </li>
+                                        @endforeach
+
                                     </ul>
                                 </li>
 
@@ -144,7 +151,7 @@
         @yield('content')
     </main>
     <!--end content-->
-
+    <div class="overlay nav-toggle-icon"></div>
 </div>
 </body>
 </html>

@@ -1,0 +1,22 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent;
+
+/**
+ * Class Card
+ * @property  integer $id
+ * @property  string $title
+ * @property  string $url
+ *
+ * @package App\Models
+ * @mixin Eloquent
+ *
+ */
+
+class MenuItem extends Model
+{
+    //
+}

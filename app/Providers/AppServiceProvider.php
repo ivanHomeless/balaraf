@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\Language;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +15,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+
+        view()->composer('layouts.admin', function($view) {
+            $languages = Language::all();
+            $view->with('data', array('languages' => $languages));
+        });
     }
 
     /**
