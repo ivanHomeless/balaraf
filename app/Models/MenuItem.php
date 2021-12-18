@@ -22,4 +22,6 @@ class MenuItem extends Model
         'title',
         'url',
     ];
+
+    public $timestamps = false;
 }

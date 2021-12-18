@@ -41,8 +41,8 @@
                                 <td>
                                     <div class="d-flex align-items-center gap-3 fs-6">
                                         <a href="{{route('admin.cards.edit', $card->id)}}" class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Edit info" aria-label="Edit"><i class="bi bi-pencil-fill"></i></a>
-                                        <a onclick="destroy(event)" href="#" class="text-danger" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Delete" aria-label="Delete"><i class="bi bi-trash-fill"></i></a>
-                                        <form id="destroy-form" action="{{route('admin.cards.destroy', $card->id)}}" method="POST" style="display: none;">
+                                        <a onclick="destroy(event, {{$card->id}})" href="#" class="text-danger" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Delete" aria-label="Delete"><i class="bi bi-trash-fill"></i></a>
+                                        <form id="destroy-form-{{$card->id}}" action="{{route('admin.cards.destroy', $card->id)}}" method="POST" style="display: none;">
                                             {{ method_field('delete') }}
                                             {{ csrf_field() }}
                                         </form>
@@ -81,8 +81,8 @@
                                 <td>
                                     <div class="d-flex align-items-center gap-3 fs-6">
                                         <a href="{{route('admin.site.pages.edit', $page->id)}}" class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Edit info" aria-label="Edit"><i class="bi bi-pencil-fill"></i></a>
-                                        <a onclick="destroy(event)" href="#" class="text-danger" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Delete" aria-label="Delete"><i class="bi bi-trash-fill"></i></a>
-                                        <form id="destroy-form" action="{{route('admin.site.pages.destroy', $page->id)}}" method="POST" style="display: none;">
+                                        <a onclick="destroy(event, {{$page->id}})" href="#" class="text-danger" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Delete" aria-label="Delete"><i class="bi bi-trash-fill"></i></a>
+                                        <form id="destroy-form-{{$page->id}}" action="{{route('admin.site.pages.destroy', $page->id)}}" method="POST" style="display: none;">
                                             {{ method_field('delete') }}
                                             {{ csrf_field() }}
                                         </form>

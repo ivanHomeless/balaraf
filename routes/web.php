@@ -41,8 +41,8 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function() {
             'except' => 'show',
         ]);
 
-        Route::resource('menuItem', 'MenuItemController', [
-            'names' => 'admin.site.menuItems',
+        Route::resource('menu-item', 'MenuItemController', [
+            'names' => 'admin.site.menu-items',
             'except' => 'show',
         ]);
     });

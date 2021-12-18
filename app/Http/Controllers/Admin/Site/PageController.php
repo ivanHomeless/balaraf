@@ -39,27 +39,19 @@ class PageController extends Controller
      */
     public function store(PageCreateRequest $request)
     {
-        $item = false;
+        $data = $request->all();
+        $item = Page::create($data);
+        $item->save();
+
         if ($item) {
             return redirect()
-                ->route('admin.cards.edit', $item->id)
+                ->route('admin.site.pages.edit', $item->id)
                 ->with(['success' => 'Успешно сохранено']);
         } else {
             return back()
                 ->withErrors(['msg' => 'Ошибка сохранения'])
                 ->withInput();
         }
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
     }
 
     /**
@@ -70,7 +62,8 @@ class PageController extends Controller
      */
     public function edit($id)
     {
-        //
+        $page = Page::findOrFail($id);
+        return view('admin.site.pages.edit', compact('page'));
     }
 
     /**
@@ -82,7 +75,21 @@ class PageController extends Controller
      */
     public function update(PageUpdateRequest $request, $id)
     {
-        //
+        $item = Page::findOrFail($id);
+        $data = $request->all();
+
+        $item->fill($data);
+        $item->save();
+
+        if ($item) {
+            return redirect()
+                ->route('admin.site.pages.edit', $item->id)
+                ->with(['success' => 'Успешно сохранено']);
+        } else {
+            return back()
+                ->withErrors(['msg' => 'Ошибка сохранения'])
+                ->withInput();
+        }
     }
 
     /**

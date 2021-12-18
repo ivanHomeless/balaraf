@@ -108,7 +108,7 @@
                                 </li>
 
                                 <li>
-                                    <a href="{{route('admin.site.menuItems.index')}}">
+                                    <a href="{{route('admin.site.menu-items.index')}}">
                                         <div class="parent-icon">
                                             <i class="lni lni-menu"></i>
                                         </div>

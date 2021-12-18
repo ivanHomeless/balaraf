@@ -1,8 +1,9 @@
-function destroy(event) {
+function destroy(event, id) {
     event.preventDefault();
-    let result = confirm('Вы уверены');
+    let result = confirm('Вы уверены?');
     if (result) {
-        document.getElementById('destroy-form').submit();;
+        console.log('destroy-form-' + id);
+        document.getElementById('destroy-form-' + id).submit();;
     }
 }
 

@@ -17,6 +17,8 @@ use Illuminate\Database\Eloquent;
  */
 class Language extends Model
 {
+    public $timestamps = false;
+
     public function cards()
     {
         return $this->hasMany('App\Models\Card');

@@ -15,7 +15,7 @@ class AddMenuItems extends Migration
     public function up()
     {
         DB::table('menu_items')->insert([
-            'title' => 'карточки',
+            'title' => 'Карточки',
             'url' => '/cards',
         ]);
     }

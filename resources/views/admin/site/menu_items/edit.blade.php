@@ -23,16 +23,17 @@
                 @include('admin.includes.result_massage')
                 <h6 class="mb-0 text-uppercase">Добавить пункт</h6>
                 <hr>
-                <form class="row g-3" method="POST" action="{{ route('admin.site.menu-items.store') }}">
+                <form class="row g-3" method="POST" action="{{ route('admin.site.menu-items.update', $menuItem->id) }}">
                     {{ csrf_field()  }}
+                    {{ method_field('PATCH')  }}
 
                     <div class="col-6">
                         <label class="form-label">Заголовок</label>
-                        <input value="{{ old('title') }}" name="title" type="text" class="form-control">
+                        <input value="{{ old('title', $menuItem->title) }}" name="title" type="text" class="form-control">
                     </div>
                     <div class="col-6">
                         <label class="form-label">Ссылка</label>
-                        <input value="{{ old('url') }}" name="url" type="text" class="form-control">
+                        <input value="{{ old('url', $menuItem->url) }}" name="url" type="text" class="form-control">
                     </div>
 
                     <div class="col-12">
