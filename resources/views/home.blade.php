@@ -6,13 +6,38 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/app.css">
+
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <!-- Scripts -->
+    <script src="{{ asset('js/bootstrap.min.js') }}" defer></script>
+    <script src="{{ asset('js/jquery.min.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}" defer></script>
+
     <title>Главная</title>
 </head>
 <body>
 <div id="app" class="wrap">
     <header class="main-header">
+
+        <nav class="navbar navbar-light bg-light">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
+                        data-mdb-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+        <div class="collapse" id="navbarToggleExternalContent">
+            <div class="bg-light shadow-3 p-4">
+                <button class="btn btn-link btn-block border-bottom m-0">Link 1</button>
+                <button class="btn btn-link btn-block border-bottom m-0">Link 2</button>
+                <button class="btn btn-link btn-block m-0">Link 3</button>
+            </div>
+        </div>
+
         <nav class="main-menu container">
             <ul class="main-menu__items">
                 <li class="main-menu__item">
@@ -25,7 +50,7 @@
                     <a class="main-menu__link" href="">Скачать</a>
                 </li>
                 <li class="main-menu__item">
-                    <a class="main-menu__link" href="">О проекте</a>
+                    <a class="main-menu__link" href="">О проекте</a>
                 </li>
                 <li class="main-menu__item">
                     <a class="main-menu__link" href="">Контакты</a>

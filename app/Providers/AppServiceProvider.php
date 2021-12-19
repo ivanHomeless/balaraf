@@ -16,7 +16,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
 
-        view()->composer('layouts.admin', function($view) {
+        view()->composer(['layouts.app', 'layouts.admin'], function($view) {
             $languages = Language::all();
             $view->with('data', array('languages' => $languages));
         });

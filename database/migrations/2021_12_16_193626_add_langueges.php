@@ -16,11 +16,12 @@ class AddLangueges extends Migration
     {
         $data = [
             [ 'id' => 1, 'name' => 'Татарский', 'alias' => 'tatar'],
-            [ 'id' => 2, 'name' => 'Мордовский(мокша)', 'alias' => 'moksha'],
-            [ 'id' => 3, 'name' => 'Мордовский(эрзя)', 'alias' => 'erzya'],
-            [ 'id' => 4, 'name' => 'Марийский', 'alias' => 'mari'],
-            [ 'id' => 5, 'name' => 'Удмуртский', 'alias' => 'udmurt'],
-            [ 'id' => 6, 'name' => 'Чувашский', 'alias' => 'chuvash'],
+            [ 'id' => 2, 'name' => 'Марийский', 'alias' => 'mari'],
+            [ 'id' => 3, 'name' => 'Чувашский', 'alias' => 'chuvash'],
+            [ 'id' => 4, 'name' => 'Эрзя(мордовский)', 'alias' => 'erzya'],
+            [ 'id' => 5, 'name' => 'Мокша(мордовский)', 'alias' => 'moksha'],
+            [ 'id' => 6, 'name' => 'Удмуртский', 'alias' => 'udmurt'],
+
         ];
         DB::table('languages')->insert($data);
     }

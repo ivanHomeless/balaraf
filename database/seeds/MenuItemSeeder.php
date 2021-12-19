@@ -21,7 +21,7 @@ class MenuItemSeeder extends Seeder
                 'url' => '/download',
             ],
             [
-                'title' => 'О проекте',
+                'title' => 'О проекте',
                 'url' => '/about',
             ],
             [

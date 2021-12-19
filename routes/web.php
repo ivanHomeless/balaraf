@@ -12,8 +12,8 @@
 */
 
 
-Route::group(['namespace' => 'Site'], function () {
-    Route::get('/', 'SiteController@index');
+Route::group(['namespace' => 'Cards'], function () {
+    Route::get('/', 'CardController@index');
 });
 
 Auth::routes();
@@ -27,7 +27,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function() {
     Route::get('/dashboard', 'AdminController@dashboard')->name('admin.dashboard');
 
     Route::group(['namespace' => 'Cards', 'prefix' => 'cards'], function() {
-        Route::resource('card', 'CardController', [
+        Route::resource('cards', 'CardController', [
             'names' => 'admin.cards',
             'except' => 'show',
         ]);
