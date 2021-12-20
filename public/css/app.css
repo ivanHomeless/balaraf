@@ -19,16 +19,15 @@ h2 {
 .main-header {
     padding-bottom: 10px;
 }
+
 .main-header__content {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-/***menu**/
-.main-menu {
 
-}
+/***menu**/
 .main-menu__items {
     display: flex;
     list-style: none;
@@ -37,7 +36,7 @@ h2 {
     flex-wrap: wrap;
 }
 .main-menu__item {
-    margin-left: 30px;
+    margin-left: 23px;
 }
 .main-menu__link {
     display: block;
@@ -84,3 +83,213 @@ footer {
 
 
 
+
+
+.card-header {
+    position: relative;
+    padding: 15px 0 0;
+    min-height: 194px;
+    background: #6BCC52;
+}
+.card-header * {
+    position: relative;
+}
+
+.card-pattern__wrap {
+    padding: 5px 0;
+    background: #FFDB70;
+    position: absolute;
+    top: 40px;
+    width: 100%;
+
+}
+.card-pattern {
+    height: 50px;
+    background: url("/public/images/pattern-tatar.png") repeat-x;
+}
+.card-header__content {
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: wrap;
+}
+.card-header .main-menu {
+    display: flex;
+}
+
+.change-language {
+    display: flex;
+    margin-left: auto;
+}
+.change-language__content {
+    font-weight: bold;
+    margin-left: auto;
+}
+.change-language__select {
+    appearance: none;
+    background-image: url("/public/images/select_language__select.png"), linear-gradient(180deg, #FCFFD3 21.35%, #FDEC94 30.21%, #FFCC4A 80.54%, #FAFFC7 100%);
+    background-repeat: no-repeat;
+    background-position: left 5px center, center;
+    padding: 5px 4px 5px 30px;
+    min-width: 194px;
+    font-size: 24px;
+    border: 2px solid #FFDB70;
+    box-sizing: border-box;
+    border-radius: 13px;
+    cursor: pointer;
+}
+.change-language__select,
+.change-language__select option{
+    text-transform: uppercase;
+    color: #F0271A;
+    font-weight: bold;
+}
+
+.change-language__select option{
+    background: linear-gradient(180deg, #FCFFD3 21.35%, #FDEC94 30.21%, #FFCC4A 80.54%, #FAFFC7 100%);
+}
+
+.card-header .main-menu__items {
+    margin-left: auto;
+}
+.card-logo {
+    max-width: 350px;
+}
+.card-logo__image {
+    width: 100%;
+    height: auto;
+}
+
+
+.alphabet-cards {
+
+}
+.alphabet-cards__wrap {
+    justify-content: center;
+}
+
+
+
+.alphabet-cards__item {
+    position: relative;
+    height: 250px;
+    width: 180px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    perspective: 1000px;
+    filter: drop-shadow(6px 6px 4px rgba(0, 0, 0, 0.25));
+}
+.alphabet-cards__front,
+.alphabet-cards__back {
+    width: 100%;
+    height: 100%;
+}
+
+
+.alphabet-cards__front,
+.alphabet-cards__back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 1s;
+    backface-visibility: hidden;
+    background-color: #fff;
+}
+
+.alphabet-cards__back {
+    transform: rotateY(180deg);
+}
+
+.route-card:hover .alphabet-cards__front {
+    transform: rotateY(180deg);}
+.route-card:hover .alphabet-cards__back {
+    transform: rotateY(360deg);}
+
+.move-card {
+    position: absolute;
+    z-index: 3;
+    transition: 2s;
+}
+
+
+.alphabet-cards__front-background {
+    min-height: 250px;
+    background: rgba(255, 255, 255, 0.8);
+    width: 100%;
+    height: 100%;
+}
+
+.alphabet-cards__back {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.alphabet-cards__letter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-transform: uppercase;
+    color: #F0271A;
+    font-size: 180px;
+    font-weight: bold;
+}
+
+.alphabet-cards__back-top {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.alphabet-cards__back-letter {
+    font-size: 80px;
+    line-height: 80px;
+    color: #F0271A;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+
+.alphabet-cards__back-img img {
+    max-width: 100%;
+}
+.alphabet-cards__back-img video {
+    width: 180px;
+    display: none;
+}
+.route-card:hover video {
+    display: block;
+}
+.alphabet-cards__back-sound svg{
+    fill: #FFDB70;
+}
+.alphabet-cards__back-word {
+    color: #F0271A;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.alphabet-cards__back-translation {
+    color: #306EE5;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.tatar .card-header {
+    background: #6BCC52;
+}
+.tatar .card-pattern {
+    background: url("/public/images/pattern-tatar.png") repeat-x;
+}
+
+
+.chuvash .card-header {
+    background: linear-gradient(180deg, #E32132 0%, #EE3BB1 100%);
+}
+.chuvash .card-pattern {
+    background: url("/public/images/pattern-chuvash.png") repeat-x;
+}

@@ -3,6 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @if (isset($page))
+        <meta name="title" content="{{ $page->seo_title }}"/>
+        <meta name="description" content="{{ $page->seo_description }}" />
+        <meta name="keywords" content="{{ $page->seo_keywords }}" />
+    @endif
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
@@ -22,7 +28,7 @@
     </script>
 </head>
 <body>
-<div id="app" class="wrap">
+<div id="app" class="wrap page">
     <header class="main-header">
 
         <div class="container">
@@ -33,23 +39,14 @@
 
                 <nav class="main-menu container">
                     <ul class="main-menu__items">
-                        <li class="main-menu__item">
-                            <a class="main-menu__link" href="#">Карточки</a>
-                        </li>
-                        <li class="main-menu__item">
-                            <a class="main-menu__link" href="">Игры</a>
-                        </li>
-                        <li class="main-menu__item">
-                            <a class="main-menu__link" href="">Скачать</a>
-                        </li>
-                        <li class="main-menu__item">
-                            <a class="main-menu__link" href="">О проекте</a>
-                        </li>
-                        <li class="main-menu__item">
-                            <a class="main-menu__link" href="">Контакты</a>
-                        </li>
+                        @foreach($data['pages'] as $page)
+                            <li class="main-menu__item">
+                                <a class="main-menu__link" href="{{ $page->url }}">{{ $page->title }}</a>
+                            </li>
+                        @endforeach
                     </ul>
                 </nav>
+
             </div>
         </div>
     </header>

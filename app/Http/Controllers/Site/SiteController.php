@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers\Site;
 
+use App\Models\Page;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class SiteController extends Controller
 {
-    public function index()
+    public function index($slug)
     {
-        return view('site.index');
+        $page = Page::where('slug', $slug)->first();
+        return view('site.index', compact('page'));
     }
+
+
 }

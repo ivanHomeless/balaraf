@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Language;
+use App\Models\MenuItem;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -16,9 +17,13 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
 
-        view()->composer(['layouts.app', 'layouts.admin'], function($view) {
+        view()->composer(['layouts.card', 'layouts.admin', 'layouts.page'], function($view) {
             $languages = Language::all();
-            $view->with('data', array('languages' => $languages));
+            $pages = MenuItem::all();
+            $view->with('data', array(
+                'languages' => $languages,
+                'pages' => $pages,
+            ));
         });
     }
 

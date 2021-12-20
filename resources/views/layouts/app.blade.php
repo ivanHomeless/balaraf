@@ -25,31 +25,31 @@
 <div id="app" class="wrap">
     <header class="main-header">
 
+        <nav class="main-menu container">
+            <ul class="main-menu__items">
+                <li class="main-menu__item">
+                    <a class="main-menu__link" href="#">Карточки</a>
+                </li>
+                <li class="main-menu__item">
+                    <a class="main-menu__link" href="">Игры</a>
+                </li>
+                <li class="main-menu__item">
+                    <a class="main-menu__link" href="">Скачать</a>
+                </li>
+                <li class="main-menu__item">
+                    <a class="main-menu__link" href="">О проекте</a>
+                </li>
+                <li class="main-menu__item">
+                    <a class="main-menu__link" href="">Контакты</a>
+                </li>
+            </ul>
+        </nav>
+
         <div class="container">
             <div class="main-header__content">
                 <div class="main-logo">
-                    <img class="main-logo__image" src="{{ asset('public/images/main-logo.png') }}" alt="">
+                    <img class="main-logo__image" src="{{ asset('public/images/logo.png') }}" alt="">
                 </div>
-
-                <nav class="main-menu container">
-                    <ul class="main-menu__items">
-                        <li class="main-menu__item">
-                            <a class="main-menu__link" href="#">Карточки</a>
-                        </li>
-                        <li class="main-menu__item">
-                            <a class="main-menu__link" href="">Игры</a>
-                        </li>
-                        <li class="main-menu__item">
-                            <a class="main-menu__link" href="">Скачать</a>
-                        </li>
-                        <li class="main-menu__item">
-                            <a class="main-menu__link" href="">О проекте</a>
-                        </li>
-                        <li class="main-menu__item">
-                            <a class="main-menu__link" href="">Контакты</a>
-                        </li>
-                    </ul>
-                </nav>
             </div>
         </div>
     </header>

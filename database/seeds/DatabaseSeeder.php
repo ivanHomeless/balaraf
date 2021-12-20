@@ -12,7 +12,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // $this->call(UsersTableSeeder::class);
-        factory(App\Models\Card::class, 30)->create();
+        factory(App\Models\Card::class, 160)->create();
         $this->call(PageSeeder::class);
         $this->call(MenuItemSeeder::class);
     }

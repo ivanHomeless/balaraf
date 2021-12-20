@@ -11,12 +11,21 @@
 |
 */
 
-
+Auth::routes();
 Route::group(['namespace' => 'Cards'], function () {
     Route::get('/', 'CardController@index');
+    Route::get('/change-language/{id}', 'CardController@ChangeLanguage');
 });
 
-Auth::routes();
+Route::group(['namespace' => 'Site'], function () {
+    Route::get('/{slug}', 'SiteController@index');
+});
+
+Route::group(['namespace' => 'Site'], function () {
+    Route::get('/test', 'SiteController@index');
+});
+
+
 
 
 $groupData = [
