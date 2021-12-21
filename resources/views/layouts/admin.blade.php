@@ -123,6 +123,9 @@
                                     </a>
                                     <ul class="mm-collapse">
                                         <li>
+                                            <a href="{{ route('admin.setting.page-card.index')  }}"><i class="fadeIn animated bx bx-radio-circle"></i>Страница карточек</a>
+                                        </li>
+                                        <li>
                                             <a href="{{ route('admin.setting.password.edit', 1)  }}"><i class="fadeIn animated bx bx-radio-circle"></i>Сменить пароль</a>
                                         </li>
                                     </ul>

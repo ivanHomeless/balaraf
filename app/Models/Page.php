@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent;
 
 /**
- * Class Card
+ * Class Page
  * @property  integer $id
  * @property  integer $slug
  * @property  string $title

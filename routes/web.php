@@ -64,6 +64,9 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function() {
             'names' => 'admin.setting.password',
             'only' => ['edit', 'update'],
         ]);
+
+        Route::get('/page-card', 'PageCardController@index')->name('admin.setting.page-card.index');;
+        Route::post('/page-card', 'PageCardController@update')->name('admin.setting.page-card.update');;
     });
 
 });
