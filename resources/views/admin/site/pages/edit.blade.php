@@ -77,8 +77,12 @@
         </div>
     </form>
     <script>
-        var editor = CKEDITOR.replace('content',{height: 300});
-        AjexFileManager.init({returnTo: 'ckeditor', editor: editor});
+        var editor=CKEDITOR.replace( 'content',{
+            extraPlugins : 'filebrowser',
+            filebrowserBrowseUrl:'browser.php?type=Images',
+            filebrowserUploadMethod:"form",
+            filebrowserUploadUrl:"/admin/site/upload-file-editor"
+        });
     </script>
 @endsection
 

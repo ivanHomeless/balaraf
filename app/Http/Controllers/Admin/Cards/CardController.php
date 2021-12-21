@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\Cards;
 
 use App\Components\UploadedFile;
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Requests\CardCreateRequest;
 use App\Http\Requests\CardUpdateRequest;
 use App\Models\Card;
@@ -11,7 +12,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 
-class CardController extends Controller
+class CardController extends AdminController
 {
     /**
      * Display a listing of the resource.
@@ -159,15 +160,6 @@ class CardController extends Controller
         }
     }
 
-    private function saveMedia($type) {
 
-        $dir = '/media' . '/' . $type;
-        $path =  public_path() . $dir;
-        $file = UploadedFile::getInstance($type);
-        if (!$file) {
-            return null;
-        }
-        return '/public/media/' . $type . '/' . $file->saveAs($path);
-    }
 
 }

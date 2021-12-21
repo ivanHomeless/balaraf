@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.3.6,
+* Autoprefixer: v10.3.1
+* Browsers: last 4 version
+*/
+
 html {
     height: 100%;
 }
@@ -12,7 +19,12 @@ h2 {
 
 .wrap {
     height: 100vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
 }
 
@@ -21,18 +33,26 @@ h2 {
 }
 
 .main-header__content {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
 }
 
 
-/***menu**/
 .main-menu__items {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     list-style: none;
     margin-left: auto;
     margin-bottom: 0;
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
 }
 .main-menu__item {
@@ -50,6 +70,7 @@ h2 {
     color: #E21515;
 }
 
+
 .main-logo {
     text-align: center;
     max-width: 400px;
@@ -59,7 +80,10 @@ h2 {
     height: auto;
 }
 
+
 main {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 0 auto;
     flex: 1 0 auto;
     padding-bottom: 95px;
     padding-top: 50px;
@@ -68,6 +92,8 @@ main {
 
 
 footer {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
     flex: 0 0 auto;
     background: #FCFFD3;
 }
@@ -83,11 +109,10 @@ footer {
 
 
 
-
-
+/*Карточки страница**/
 .card-header {
     position: relative;
-    padding: 15px 0 0;
+    padding:  0;
     min-height: 194px;
     background: #6BCC52;
 }
@@ -105,18 +130,29 @@ footer {
 }
 .card-pattern {
     height: 50px;
-    background: url("/public/images/pattern-tatar.png") repeat-x;
+    background-image: url("/public/images/pattern-tatar.png");
+    background-repeat:  repeat-x;
+    background-size: contain;
 }
 .card-header__content {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: end;
+    -ms-flex-align: end;
     align-items: flex-end;
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
 }
 .card-header .main-menu {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
 }
 
 .change-language {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     margin-left: auto;
 }
@@ -125,7 +161,11 @@ footer {
     margin-left: auto;
 }
 .change-language__select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
     appearance: none;
+    background-image: url("/public/images/select_language__select.png"), -webkit-gradient(linear, left top, left bottom, color-stop(21.35%, #FCFFD3), color-stop(30.21%, #FDEC94), color-stop(80.54%, #FFCC4A), to(#FAFFC7));
+    background-image: url("/public/images/select_language__select.png"), -o-linear-gradient(top, #FCFFD3 21.35%, #FDEC94 30.21%, #FFCC4A 80.54%, #FAFFC7 100%);
     background-image: url("/public/images/select_language__select.png"), linear-gradient(180deg, #FCFFD3 21.35%, #FDEC94 30.21%, #FFCC4A 80.54%, #FAFFC7 100%);
     background-repeat: no-repeat;
     background-position: left 5px center, center;
@@ -133,6 +173,7 @@ footer {
     min-width: 194px;
     font-size: 24px;
     border: 2px solid #FFDB70;
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
     border-radius: 13px;
     cursor: pointer;
@@ -144,9 +185,9 @@ footer {
     font-weight: bold;
 }
 
-
 .card-header .main-menu__items {
     margin-left: auto;
+    padding-top: 15px;
 }
 .card-logo {
     max-width: 350px;
@@ -157,18 +198,23 @@ footer {
 }
 
 
+/* Карточки */
 .alphabet-cards__wrap {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
 }
 
 
 .alphabet-cards__item {
     position: relative;
-    height: 250px;
+    height: 333px;
     width: 180px;
     margin-bottom: 15px;
     cursor: pointer;
+    -webkit-perspective: 1000px;
     perspective: 1000px;
+    -webkit-filter: drop-shadow(6px 6px 4px rgba(0, 0, 0, 0.25));
     filter: drop-shadow(6px 6px 4px rgba(0, 0, 0, 0.25));
 }
 .alphabet-cards__front,
@@ -185,33 +231,48 @@ footer {
     height: 100%;
     left: 0;
     top: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-transition: 500ms;
+    -o-transition: 500ms;
     transition: 500ms;
+    -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     background-color: #fff;
 }
 
 .alphabet-cards__back {
+    -webkit-transform: rotateY(180deg);
     transform: rotateY(180deg);
 }
 
 .route-card:hover .alphabet-cards__front {
+    -webkit-transform: rotateY(180deg);
     transform: rotateY(180deg);
 }
 .route-card:hover .alphabet-cards__back {
+    -webkit-transform: rotateY(360deg);
     transform: rotateY(360deg);
 }
 
 .move-card {
+    -webkit-animation: scale 500ms forwards linear;
     animation: scale 500ms forwards linear;
     z-index: 3;
 }
 .move-card .alphabet-cards__front {
+    -webkit-transform: rotateY(180deg);
     transform: rotateY(180deg);
 }
 .move-card .alphabet-cards__back {
+    -webkit-transform: rotateY(360deg);
     transform: rotateY(360deg);
 }
 
@@ -223,9 +284,16 @@ footer {
 }
 
 .alphabet-cards__back {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-wrap: wrap;
+    /*flex-wrap: wrap;*/
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
 }
 
@@ -233,6 +301,8 @@ footer {
     position: absolute;
     top: 50%;
     left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     text-transform: uppercase;
     color: #F0271A;
@@ -242,8 +312,17 @@ footer {
 
 .alphabet-cards__back-top {
     width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
+    padding: 10px 0px 0px 10px;
+    padding-top: 10px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-left: 10px;
 }
 .alphabet-cards__back-letter {
     font-size: 80px;
@@ -263,7 +342,7 @@ footer {
 
 .alphabet-cards__back-img {
     width: 180px;
-    height: 116px;
+    height: 180px;
     overflow: hidden;
 }
 
@@ -285,16 +364,9 @@ footer {
     color: #306EE5;
     text-transform: uppercase;
     font-weight: bold;
+    text-align: center;
 }
 
-/*.alphabet-cards__back-picture {
-    width: 100%;
-    height: 100%;
-    background-size: contain;
-    background-position: center;
-    background-repeat:  no-repeat;
-
-}*/
 
 .left,
 .right {
@@ -302,6 +374,8 @@ footer {
     width: 40px;
     height: 40px;
     position: absolute;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
     transform: translateY(-50%);
 }
 .left {
@@ -324,6 +398,27 @@ footer {
     z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
     cursor: pointer; /* Add a pointer on hover */
 }
+@-webkit-keyframes scale {
+    from {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+    to {
+        -webkit-transform: scale(1.8);
+        transform: scale(1.8);
+    }
+}
+
+@keyframes scale {
+    from {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+    to {
+        -webkit-transform: scale(1.8);
+        transform: scale(1.8);
+    }
+}
 
 
 
@@ -333,22 +428,70 @@ footer {
     background: #6BCC52;
 }
 .tatar .card-pattern {
-    background: url("/public/images/pattern-tatar.png") repeat-x;
+    background-image: url("/public/images/pattern-tatar.png");
+}
+
+
+.mari .card-header {
+    background: #F6982A;
+}
+.mari .main-menu__wrapper {
+    background: #ED2524;
+}
+.mari .card-pattern__wrap {
+    padding: 0;
+}
+.mari .card-pattern {
+    background-image: url("/public/images/pattern-mari.png");
 }
 
 
 .chuvash .card-header {
+    background: -webkit-gradient(linear, left top, left bottom, from(#E32132), to(#EE3BB1));
+    background: -o-linear-gradient(top, #E32132 0%, #EE3BB1 100%);
     background: linear-gradient(180deg, #E32132 0%, #EE3BB1 100%);
 }
 .chuvash .card-pattern {
-    background: url("/public/images/pattern-chuvash.png") repeat-x;
+    background-image: url("/public/images/pattern-chuvash.png");
 }
 
-@keyframes scale {
-    from {
-        transform: scale(1);
-    }
-    to {
-        transform: scale(2);
-    }
+
+.erzya .card-header {
+    background: #F5E400;
+}
+.erzya .main-menu__wrapper {
+    background: #ED2524;
+}
+.erzya .card-pattern__wrap {
+    padding: 0;
+}
+.erzya .card-pattern {
+    background-image: url("/public/images/pattern-erzya.png");
+}
+
+
+.moksha .card-header {
+    background: #F5E400;
+}
+.moksha .main-menu__wrapper {
+    background: #ED2524;
+}
+.moksha .card-pattern__wrap {
+    padding: 0;
+}
+.moksha .card-pattern {
+    background-image: url("/public/images/pattern-moksha.png");
+}
+
+.udmurt .card-header {
+    background: #D72A6A;
+}
+.udmurt .main-menu__wrapper {
+    background: #D68C2A;
+}
+.udmurt .card-pattern__wrap {
+    padding: 0;
+}
+.udmurt .card-pattern {
+    background-image: url("/public/images/pattern-udmurt.png");
 }

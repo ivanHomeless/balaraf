@@ -15,6 +15,30 @@ function getCoords(elem) { // кроме IE8-
     };
 
 }
+let audio = null;
+function playSound(sound, element) {
+
+    if (!audio) {
+        audio = new Audio(sound);
+        audio.play();
+        element.find('.play').attr('fill', '#FFDB70');
+
+        let interval = setInterval(function () {
+            let color = element.find('.play').attr('fill');
+            if (color === '#e5e5e5') {
+                element.find('.play').attr('fill', '#ffdb70');
+            } else {
+                element.find('.play').attr('fill', '#e5e5e5');
+            }
+        }, 150);
+        $(audio).on('ended', function () {
+            audio = null;
+            clearInterval(interval);
+            element.find('.play').attr('fill', '#e5e5e5');
+        });
+    }
+
+}
 
 $( '#media-back-select' ).change(function() {
     let val = $(this).find('option:selected').val();
@@ -39,6 +63,8 @@ $('.alphabet-cards__item').on('click', function () {
     let box = getCoords(this);
     self.find('video').show()
     self.addClass('route-card');
+    var audio = null;
+
 
     let card = self.clone();
     card.removeClass('route-card').addClass('move-card').appendTo('body');
@@ -47,11 +73,11 @@ $('.alphabet-cards__item').on('click', function () {
         $(window).scrollTop()) + "px";
     let left = Math.max(0, (($(window).width() - card.outerWidth()) / 2) +
         $(window).scrollLeft()) + "px";
+    let sound = card.find('.alphabet-cards__back-sound').data('sound');
 
-    $('.move-card .alphabet-cards__back-sound').on('click', function () {
-        let sound = $(this).data('sound');
-        var audio = new Audio(sound);
-        audio.play();
+
+    $('.move-card').on('click', function () {
+        playSound(sound, card);
     });
 
     card.css({
@@ -65,9 +91,10 @@ $('.alphabet-cards__item').on('click', function () {
 
     $( '.overlay' ).show();
     setTimeout(function () {
-        let card = $('.move-card');
         card.append('<img class="left" src="/public/images/left.png">');
         card.append('<img class="right" src="/public/images/right.png">');
+
+        playSound(sound, card);
 
         let currentIndex = self.data('index')
         let items = $('.alphabet-cards .alphabet-cards__item');

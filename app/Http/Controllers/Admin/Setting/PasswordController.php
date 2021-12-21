@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Admin\Setting;
 
+use App\Http\Controllers\Admin\AdminController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class PasswordController extends Controller
+class PasswordController extends AdminController
 {
 
     public function edit($id)

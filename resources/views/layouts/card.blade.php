@@ -29,15 +29,17 @@
 <div id="app" class="wrap cards {{$lang->alias}}">
     <header class="card-header">
         <div class="card-header__inner">
-            <nav class="main-menu container">
-                <ul class="main-menu__items">
-                    @foreach($data['pages'] as $page)
-                    <li class="main-menu__item">
-                        <a class="main-menu__link" href="{{ $page->url }}">{{ $page->title }}</a>
-                    </li>
-                    @endforeach
-                </ul>
-            </nav>
+            <div class="main-menu__wrapper">
+                <nav class="main-menu container">
+                    <ul class="main-menu__items">
+                        @foreach($data['pages'] as $page)
+                        <li class="main-menu__item">
+                            <a class="main-menu__link" href="{{ $page->url }}">{{ $page->title }}</a>
+                        </li>
+                        @endforeach
+                    </ul>
+                </nav>
+            </div>
 
             <div class="card-pattern__wrap">
                 <div class="card-pattern"></div>
@@ -46,7 +48,9 @@
             <div class="container">
                 <div class="card-header__content">
                     <div class="card-logo">
-                        <img class="card-logo__image" src="{{ asset('public/images/logo.png') }}" alt="">
+                        <a href="{{ asset('/') }}">
+                            <img class="card-logo__image" src="{{ asset('public/images/logo.png') }}" alt="">
+                        </a>
                     </div>
                     <div class="change-language">
                         <div class="change-language__content">

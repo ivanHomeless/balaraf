@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @if (isset($page))
-        <meta name="title" content="{{ $page->seo_title }}"/>
         <meta name="description" content="{{ $page->seo_description }}" />
         <meta name="keywords" content="{{ $page->seo_keywords }}" />
+
+        <title>{{ $page->seo_title }}</title>
+
+    @else
+        <title>{{ $page->seo_title }}</title>
     @endif
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,7 +23,6 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
     <script>
@@ -34,7 +38,9 @@
         <div class="container">
             <div class="main-header__content">
                 <div class="main-logo">
-                    <img class="main-logo__image" src="{{ asset('public/images/main-logo.png') }}" alt="">
+                    <a href="{{ asset('/') }}">
+                        <img class="main-logo__image" src="{{ asset('public/images/main-logo.png') }}" alt="">
+                    </a>
                 </div>
 
                 <nav class="main-menu container">

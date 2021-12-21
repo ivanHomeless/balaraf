@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers\Admin\Site;
 
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Requests\PageCreateRequest;
 use App\Http\Requests\PageUpdateRequest;
 use App\Models\Page;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class PageController extends Controller
+class PageController extends AdminController
 {
     /**
      * Display a listing of the resource.
@@ -110,6 +111,22 @@ class PageController extends Controller
             return back()
                 ->withErrors(['msg' => 'Ошибка удаления'])
                 ->withInput();
+        }
+    }
+
+    public function uploadFileEditor(Request $request)
+    {
+        if(isset($_FILES['upload']['name']))
+        {
+            $file= $_FILES['upload']['name'];
+            $filetmp = $_FILES['upload']['tmp_name'];
+
+            //move_uploaded_file($filetmp,'upload/'.$file);
+            $function_number = $_GET['CKEditorFuncNum'];
+
+            $url = $this->saveMedia('upload');
+            $message='';
+            echo "<script>window.parent.CKEDITOR.tools.callFunction('".$function_number."','".$url."','".$message."');</script>";
         }
     }
 }

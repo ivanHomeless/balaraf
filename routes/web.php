@@ -49,6 +49,9 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function() {
             'except' => 'show',
         ]);
 
+        Route::post('/upload-file-editor', 'PageController@uploadFileEditor');
+        Route::get('/upload-file-editor', 'PageController@uploadFileEditor');
+
         Route::resource('menu-item', 'MenuItemController', [
             'names' => 'admin.site.menu-items',
             'except' => 'show',
