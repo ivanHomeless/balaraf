@@ -79,7 +79,6 @@
     <script>
         var editor=CKEDITOR.replace( 'content',{
             extraPlugins : 'filebrowser',
-            filebrowserBrowseUrl:'browser.php?type=Images',
             filebrowserUploadMethod:"form",
             filebrowserUploadUrl:"/admin/site/upload-file-editor"
         });
