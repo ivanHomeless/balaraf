@@ -3,8 +3,8 @@
     <div class="alphabet-cards">
         <div class="row">
         @foreach($lang->cards as $card)
-                <div class="col-6 col-sm-3 col-lg-2 alphabet-cards__wrap">
-                    <div class="alphabet-cards__item route-card" id="test">
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 alphabet-cards__wrap">
+                    <div class="alphabet-cards__item route-card" data-index="{{ $loop->index}}" id="card-{{$card->id}}" data-id="{{$card->id}}">
                         <div class="alphabet-cards__front" style="
                                 background:  url( {{ $card->img_front }}) no-repeat;
                                 background-size: cover;
@@ -33,7 +33,10 @@
                             </div>
                             <div class="alphabet-cards__back-img">
                                 @if ($card->img_back)
-                                    <img width="190" src="{{ asset($card->img_back) }}" alt="">
+                                    <img width="180" src="{{ asset($card->img_back) }}" alt="">
+                                    {{--<div class="alphabet-cards__back-picture"
+                                        style="background: url('{{asset($card->img_back)}}')"
+                                    ></div>--}}
                                 @endif
                                 @if ($card->video)
                                         <video controls="controls" >
@@ -50,4 +53,5 @@
         @endforeach
         </div>
     </div>
+    <div class="overlay"></div>
 @endsection

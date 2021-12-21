@@ -86,7 +86,7 @@
                                         Тег video не поддерживается вашим браузером.
                                     </video>
                                 </div>
-                                <input name="img_back" class="input-file form-control" type="file" id="media-back-input" placeholder="Картинка на оборот">
+                                <input name="{{$card->img_back ? 'img_back' : 'video' }}" class="input-file form-control" type="file" id="media-back-input" placeholder="Картинка на оборот">
                             </div>
                         </div>
                     </div>

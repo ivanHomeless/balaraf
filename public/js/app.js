@@ -37,27 +37,71 @@ $('.change-language__select').change(function () {
 $('.alphabet-cards__item').on('click', function () {
     let self = $(this);
     let box = getCoords(this);
-    //self.addClass('route-card');
+    self.find('video').show()
+    self.addClass('route-card');
 
+    let card = self.clone();
+    card.removeClass('route-card').addClass('move-card').appendTo('body');
+
+    let top = Math.max(0, (($(window).height() - card.outerHeight()) / 2) +
+        $(window).scrollTop()) + "px";
+    let left = Math.max(0, (($(window).width() - card.outerWidth()) / 2) +
+        $(window).scrollLeft()) + "px";
+
+    $('.move-card .alphabet-cards__back-sound').on('click', function () {
+        let sound = $(this).data('sound');
+        var audio = new Audio(sound);
+        audio.play();
+    });
+
+    card.css({
+        'position': 'absolute',
+        'left': box.left+ 'px',
+        'top': box.top + 'px',
+    }).animate({
+        'left' : left,
+        'top': top,
+    }, 500, "linear");
+
+    $( '.overlay' ).show();
     setTimeout(function () {
-        //let card = self.clone().addClass('move-card').appendTo('body');
+        let card = $('.move-card');
+        card.append('<img class="left" src="/public/images/left.png">');
+        card.append('<img class="right" src="/public/images/right.png">');
 
-        /*card.css({
-            'position': 'absolute',
-            'left': box.left+ 'px',
-            'top': box.top + 'px',
-        }).animate({
-            'left' : '50%',
-            'top': '50%',
-        });*/
-    }, 1000);
+        let currentIndex = self.data('index')
+        let items = $('.alphabet-cards .alphabet-cards__item');
+        let last = items.length - 1;
+
+        $('.left').on('click', function () {
+            let newIndex = currentIndex - 1;
+            if (newIndex < 0) {
+                newIndex = last;
+            }
+            let newCard = $('[data-index="'+ newIndex +'"]')
+            card.remove();
+            newCard.click();
+        });
+
+        $('.right').on('click', function () {
+            let newIndex = currentIndex + 1;
+            if (newIndex > last) {
+                newIndex = 0;
+            }
+            let newCard = $('[data-index="'+ newIndex +'"]')
+            card.remove();
+            newCard.click();
+        })
+
+    }, 500)
 
 
 
 });
+$( '.overlay' ).on('click', function () {
+    $(this).hide();
+    $('video').hide();
+    $('.move-card').remove();
+})
 
-$('.alphabet-cards__back-sound').on('click', function () {
-    let sound = $(this).data('sound');
-    var audio = new Audio(sound);
-    audio.play();
-});
+
