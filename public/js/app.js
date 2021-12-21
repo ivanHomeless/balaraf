@@ -61,7 +61,6 @@ $('.change-language__select').change(function () {
 $('.alphabet-cards__item').on('click', function () {
     let self = $(this);
     let box = getCoords(this);
-    self.find('video').show()
     self.addClass('route-card');
     var audio = null;
 
@@ -127,7 +126,6 @@ $('.alphabet-cards__item').on('click', function () {
 });
 $( '.overlay' ).on('click', function () {
     $(this).hide();
-    $('video').hide();
     $('.move-card').remove();
 })
 
