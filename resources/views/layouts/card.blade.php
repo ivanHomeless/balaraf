@@ -2,6 +2,17 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+
+    @if (isset($setting))
+        <meta name="description" content="{{ $setting[1]->value }}" />
+        <meta name="keywords" content="{{ $setting[2]->value}}" />
+
+        <title>{{ $setting[0]->value }}</title>
+
+    @else
+        <title>{{ $page->seo_title }}</title>
+    @endif
+
     {{--<meta name="viewport" content="width=device-width, initial-scale=1.0">--}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
